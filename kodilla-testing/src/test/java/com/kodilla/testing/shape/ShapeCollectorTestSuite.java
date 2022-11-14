@@ -32,7 +32,7 @@ import org.junit.jupiter.api.*;
             // When
             shapeCollector.addFigure(circle);
             // Then
-            Assertions.assertEquals (shapeCollector.getShapeCollection().size(),1);
+            Assertions.assertEquals (1, shapeCollector.getShapeCollection().size());
         }
         @Test
         void TestRemoveFigure() {
@@ -43,7 +43,7 @@ import org.junit.jupiter.api.*;
             // When
             shapeCollector.removeFigure(circle);
             // Then
-            Assertions.assertEquals (shapeCollector.getShapeCollection().size(),0);
+            Assertions.assertEquals (0,shapeCollector.getShapeCollection().size());
         }
         @Test
         void TestGetFigure() {
