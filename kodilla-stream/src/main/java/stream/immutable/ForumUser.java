@@ -1,4 +1,4 @@
-package com.kodilla.stream.immutable;
+package stream.immutable;
 
 public final class ForumUser {
     private final String username;
