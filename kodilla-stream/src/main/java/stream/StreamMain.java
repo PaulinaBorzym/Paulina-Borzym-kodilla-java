@@ -1,18 +1,30 @@
 package stream;
 
-import stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.book.Book;
+
+
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
-    public static void main(String[] args) {
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        String result = poemBeautifier.beautify("Lalalala", s -> s.toUpperCase());
-        System.out.println(result);
-        String result2 = poemBeautifier.beautify("Kotki dwa", s -> "ABC "+ s +" ABC");
-        System.out.println(result2);
-        String result3 = poemBeautifier.beautify("Szarobure", s -> s + s.length());
-        System.out.println(result3);
-        String result4 = poemBeautifier.beautify("Obydwa", s -> s + ":)");
-        System.out.println(result4);
-    }
 
+    public static void main(String[] args) {
+        Forum forum = new Forum();
+        Map<Integer,ForumUser> theResultMapOfUser = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'm')
+                .filter(forumUser -> LocalDate.now().getYear()-forumUser.getDateOfBirth().getYear() >= 18)
+                .filter(forumUser -> forumUser.getPosts() >= 1)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+        System.out.println("# elements: " + theResultMapOfUser.size());
+        theResultMapOfUser.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
+    }
 }
