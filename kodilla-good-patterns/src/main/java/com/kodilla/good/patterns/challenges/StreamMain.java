@@ -9,5 +9,18 @@ public class StreamMain {
                 .flatMap(filmList -> filmList.stream())
                 .collect(Collectors.joining("!"));
         System.out.println(result);
+
+        User user = new User();
+        user.setLastName("Bania");
+        user.setName("Hania");
+        Product book = new Product();
+        book.setName("Coma");
+        book.setPrice(29.99);
+        book.setSeller("Ksiegarnia");
+        OrderRequest firstOrder = new OrderRequest();
+        firstOrder.setBuyer(user);
+        firstOrder.setProduct(book);
+        ProductOrderService productOrderService = new ProductOrderService ( new MailInformationService(), new SellServiceImpl(), new SellRepositoryImpl());
+        productOrderService.process(firstOrder);
     }
 }
