@@ -81,7 +81,7 @@ class FindFacadeTestSuite {
     @Test
     void testFindEmployeeByPartOfTheName() {
         //Given
-        Employee johnSmith = new Employee("John", "Smith");
+        Employee johnSmith = new Employee("Smith", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
