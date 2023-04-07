@@ -1,12 +1,13 @@
 package com.kodilla.hibernate.manytomany;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
+
         name = "Company.findCompanyByFirstThreeLetters",
         query = "SELECT * FROM Companies WHERE LEFT(COMPANY_NAME,3) = :NAME",
         resultClass = Company.class

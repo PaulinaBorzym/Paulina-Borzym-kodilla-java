@@ -2,9 +2,9 @@ package com.kodilla.patterns.strategy;
 
 import com.kodilla.patterns.strategy.predictors.BuyPredictor;
 
-public sealed class Customer
-    permits CorporateCustomer, IndividualCustomer, IndividualYoungCustomer {
-
+public  class Customer
+   // permits CorporateCustomer, IndividualCustomer, IndividualYoungCustomer {  //TODO seald i permits
+{
     private final String name;
     protected BuyPredictor buyPredictor;
 
